@@ -175,7 +175,7 @@ export class DevCycleClient<
                 'bootstrapConfig option can not be combined with deferred initialization!',
             )
         }
-
+ 
         if (!options?.reactNative && typeof window !== 'undefined') {
             this.windowMessageHandler = (event: MessageEvent) => {
                 const message = event.data
@@ -715,7 +715,7 @@ export class DevCycleClient<
 
         this._closing = true
 
-        if (document && this.pageVisibilityHandler) {
+        if (typeof document !== undefined && this.pageVisibilityHandler) {
             document.removeEventListener(
                 'visibilitychange',
                 this.pageVisibilityHandler,
